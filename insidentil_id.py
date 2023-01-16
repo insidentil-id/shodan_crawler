@@ -85,7 +85,6 @@ class shodan_search:
             self.conn.execute("UPDATE cve_search_result_tb set page=?, status=? where id = ?",(this_page, "done", this_id))
             self.conn.commit()
             no = no+1
-            break
 
     def get_cve_number_page(self):
         cursor = self.conn.execute("SELECT * from cve_search_result_tb WHERE status is null")
