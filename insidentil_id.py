@@ -57,7 +57,10 @@ class shodan_search:
                     output = {}
                     for k in i['vulns']:
                         vulner=k
-                    score = i['vulns'][this_cve.upper()]['cvss']
+                    try:
+                        score = float(i['vulns'][this_cve.upper()]['cvss'])
+                    except:
+                        score = float(0)
                     if ( 3.9 >= score >=0.1 ):
                         category = "LOW"
                     elif (6.9 >= score >= 4.0):
